@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --navy: #14344a;
+  --blue: #168bd2;
+  --green: #24a66a;
+  --cream: #fffaf0;
+  --ink: #163347;
+  --muted: #567184;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 22px;
+  background: linear-gradient(160deg, #dff7ef 0%, #e8f5ff 55%, #fff4d7 100%);
+  color: var(--ink);
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+}
+.game-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  background: rgba(255,255,255,.88);
+  border: 1px solid rgba(20,52,74,.1);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 18px 50px rgba(25,77,94,.14);
+}
+.top { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:18px; }
+.eyebrow { margin:0 0 4px; color:#169c72; font-size:.75rem; letter-spacing:.18em; font-weight:900; }
+h1 { margin:0; font-size:clamp(1.45rem,3vw,2.25rem); line-height:1.15; color:var(--navy); }
+.subtitle { margin:6px 0 0; color:var(--muted); font-weight:700; }
+.start-button {
+  border:0; border-radius:14px; padding:13px 20px; background:#f6a623; color:#402b00;
+  font:900 1rem inherit; font-family:inherit; cursor:pointer; white-space:nowrap;
+  box-shadow:0 5px 0 #d78612; transition:transform .12s, box-shadow .12s;
+}
+.start-button:hover { transform:translateY(-1px); box-shadow:0 6px 0 #d78612; }
+.start-button:active { transform:translateY(3px); box-shadow:0 2px 0 #d78612; }
+.hud { display:grid; grid-template-columns: minmax(230px,1.6fr) repeat(3,minmax(110px,1fr)); gap:10px; margin-bottom:14px; }
+.hud-card { min-height:84px; padding:12px 16px; background:#f5fbff; border:1px solid #d9eaf2; border-radius:16px; display:flex; flex-direction:column; justify-content:center; }
+.target-card { background:#f4fff8; border-color:#cdeedd; }
+.hud-label { font-size:.68rem; letter-spacing:.09em; font-weight:900; color:#648093; }
+.target-row { display:flex; align-items:center; gap:12px; margin-top:6px; }
+.target-row strong { display:block; font-size:1.1rem; }
+.target-row small, .hud-card small { display:block; color:var(--muted); font-size:.76rem; font-weight:700; }
+.bin { width:43px; height:48px; border-radius:7px 7px 10px 10px; color:white; display:grid; place-items:center; font-size:1.55rem; position:relative; box-shadow:inset -5px 0 rgba(0,0,0,.09); }
+.bin:before { content:""; position:absolute; width:48px; height:6px; border-radius:4px; top:-5px; left:-2px; background:currentColor; filter:brightness(.78); opacity:.95; }
+.bin.blue { background:#167bd0; }
+.bin.red { background:#e94b4b; }
+.bin.yellow { background:#f4c331; color:#573f00; }
+.big-number { font-size:1.7rem; font-weight:900; line-height:1.1; margin-top:5px; color:#163b51; font-variant-numeric:tabular-nums; }
+.canvas-wrap { position:relative; overflow:hidden; border-radius:18px; border:3px solid #b7e1ec; background:#a8e5f0; }
+canvas { display:block; width:100%; height:auto; aspect-ratio:25 / 14; }
+.overlay { position:absolute; inset:0; display:grid; place-items:center; padding:18px; background:rgba(10,43,63,.48); backdrop-filter:blur(3px); }
+.overlay.hidden { display:none; }
+.overlay-panel { width:min(520px,100%); text-align:center; background:#fffdf4; border:3px solid white; border-radius:22px; padding:25px; box-shadow:0 12px 35px rgba(0,0,0,.2); }
+.overlay-icon { font-size:2.7rem; }
+.overlay-panel h2 { margin:4px 0 8px; color:var(--navy); font-size:1.6rem; }
+.overlay-panel p { color:#4f6b7a; line-height:1.5; margin:8px 0 15px; }
+.overlay-panel .mini-instructions { font-size:.86rem; font-weight:800; color:#36596b; }
+.bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-top:14px; color:#557183; font-size:.85rem; font-weight:700; }
+.controls { display:flex; align-items:center; gap:4px; }
+.key { display:inline-grid; place-items:center; width:27px; height:27px; background:white; border:1px solid #c6dce5; border-bottom-width:3px; border-radius:6px; color:#21465b; font-weight:900; }
+.controls span:last-child { margin-left:5px; }
+.bottom p { margin:0; }
+.message { min-height:1.3em; margin:10px 2px 0; color:#16815d; font-weight:900; }
+@media (max-width:760px) {
+  body { padding:8px; }
+  .game-shell { padding:12px; border-radius:17px; }
+  .top { align-items:flex-start; flex-direction:column; }
+  .hud { grid-template-columns:repeat(3,1fr); }
+  .target-card { grid-column:1/-1; }
+  .hud-card { padding:10px; }
+  .bottom { font-size:.76rem; }
+}

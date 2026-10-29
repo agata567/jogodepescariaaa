@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pescaria da Reciclagem</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="top">
+      <div>
+        <p class="eyebrow">MISSÃO AMBIENTAL</p>
+        <h1>🎣 Pescaria da Reciclagem</h1>
+        <p class="subtitle">Pesque o lixo certo. Deixe os peixes livres!</p>
+      </div>
+      <button id="startButton" class="start-button">Começar jogo</button>
+    </header>
+
+    <section class="hud" aria-label="Informações do jogo">
+      <div class="hud-card target-card">
+        <span class="hud-label">RECICLE ESTE MATERIAL</span>
+        <div class="target-row">
+          <div id="targetBin" class="bin blue" aria-hidden="true">
+            <span id="targetSymbol">♻</span>
+          </div>
+          <div>
+            <strong id="targetName">PAPEL</strong>
+            <small id="targetHint">Caixas de papelão</small>
+          </div>
+        </div>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">PONTOS</span>
+        <strong id="score" class="big-number">0</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">TEMPO</span>
+        <strong id="timer" class="big-number">03:00</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">NÍVEL DO RIO</span>
+        <strong id="level" class="big-number">1</strong>
+        <small id="speedLabel">Velocidade tranquila</small>
+      </div>
+    </section>
+
+    <section class="canvas-wrap">
+      <canvas id="gameCanvas" width="1000" height="560" aria-label="Jogo de pescaria da reciclagem"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="overlay-panel">
+          <div class="overlay-icon">🌊</div>
+          <h2 id="overlayTitle">Pronto para salvar o rio?</h2>
+          <p id="overlayText">Use as setas do teclado para movimentar a vara e o anzol. Encoste no lixo que corresponde à lixeira indicada.</p>
+          <p class="mini-instructions">📦 Papel = azul &nbsp; • &nbsp; 🛍️ Plástico = vermelho &nbsp; • &nbsp; 🥫 Metal = amarelo</p>
+          <button id="overlayButton" class="start-button">Começar</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom">
+      <div class="controls"><span class="key">↑</span><span class="key">←</span><span class="key">↓</span><span class="key">→</span> <span>Movimentar vara e anzol</span></div>
+      <p>♻️ Lixo correto: +1 ponto &nbsp; • &nbsp; 🐟 Peixe: −1 ponto &nbsp; • &nbsp; Outro lixo: sem penalidade</p>
+    </footer>
+    <p id="message" class="message" role="status" aria-live="polite">Escolha “Começar jogo” para iniciar.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
